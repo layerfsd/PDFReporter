@@ -1,0 +1,10 @@
+
+AxiomCoders releases PDF Report Generator
+
+<b>PDF Report Generator</b> is reporting solutions used for generating PDF files. Its comprehensive design allows you to generate PDF files directly from your .NET objects by also giving you the power to really design your PDF files. In cases when you need PDF file produced by your application, you don't want to manually fill it, this component will provide you with the quickest possible way to do that. It comes as .NET component and also as Win32/Win64 DLL library and also can be used as ASP .NET component.
+
+The report generating process implemented in our component is completely different from what is currently on the market and will give power to developers to have better control on generating process. Data source for PDF Report Generator can be anything ranging from databases to hardware device input data. 
+
+Ability to have color gradients, background images, different shapes and full control how your report is being generated is something new and different. Considering available support on this product for all of our users (both real customers and normal ones), our prices and simplicity to use, this component stands out as "Best Value for Money" PDF reporting component.
+
+<i>Product features with some nice examples can be checked here http://www.axiomcoders.com/products/pdf-report-generator</i>

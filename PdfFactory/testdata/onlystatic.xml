@@ -1,0 +1,70 @@
+<PdfFactoryTemplate>
+   <Header version="1.0">
+	<TemplateInfo Author="Pera Peric" Date="3.3.2008" />
+   </Header>
+   
+   <DataStreams version="1.0">
+		<DataStream Name="Person">	
+			<Columns>
+				<Column Name="id" Type="int" />
+				<Column Name="name" Type="string" />
+			</Columns>
+		</DataStream>
+		<DataStream Name="Phones" >
+			<Columns>
+				<Column Name="id" Type="int" />
+				<Column Name="personid" Type="int" />
+				<Column Name="phone" Type="string" />
+			</Columns>		
+		</DataStream>
+		<Connections>
+			<Connection ParentDataStream="Persons" ParentColumn="id" ChildDataStream="Phones" ChildColumn="personid" />
+		</Connections>
+   </DataStreams>
+   <Page version="1.0">	 
+	<!-- Describes looking of one page -->
+	<Info Description="Some metadata description" />
+	<Size Width="21cm" Height="24cm"></Size>
+		
+	<Balloons>   
+		<!-- 
+		  Possible balloon Types: 
+			Static - static balloons are populated with one set of data that is not chaning. Static balloons are suitable for titles, table headers, footers, ...
+			Dynamic - same ballon can be populated with different set of data. Examples are: table data, ...
+		-->
+		<Balloon Name="Title" Type="Static" DataStream="Person" Version="1.0">	
+			<AvailableOnEveryPage Value="True" /> <!-- If this ballon should be used on all pages -->
+			<FillingGeneratesNew Value="True" /> <!-- If this ballon is filled with some other ballons then new ballon of this type will be generated -->
+			<FillCapacity Value="10" /> <!-- If more than this number of dynamic ballons is reached ballon will try to generate another one, or stop dynamic generation, 0 = infinite -->
+			<CanGrow Value="True" /> <!-- is this ballon allowed to grow when there is no more place. Page is the only entity that cannot grow -->
+
+			<Location PositionX="0cm" PositionY="0cm" /> <!-- Where is balloon's location -->   
+			<Shape Type="Rectangle"> 
+				<Dimensions Width="21cm" Height="2cm" /> 
+			</Shape>
+			<Items>
+				<Item Type="StaticText" version="1.0">
+					<Location PositionX="0.5cm" PositionY="0.5cm" /> <!-- this is relative comparing to ballon location -->						
+					<Scale x="1" y="1" /> <!-- default scale values are 1,1 , but can be any regular metric -->
+					<Transformation a="1" b="0" c="0" d="1" /> <!-- Rotation or any other deformation 2x2 matrix. Default is identity matrix -->
+					<Font Name="Helvetica" Size="12pt" Color="rrggbb" />					
+					<Text Value="Phone:" />
+				</Item>				
+				<Item Type="DynamicText" version="1.0">
+					<Location PositionX="2.5cm" PositionY="0.5cm" /> <!-- this is relative comparing to ballon location -->						
+					<Scale x="1" y="1" /> <!-- default scale values are 1,1 , but can be any regular metric -->
+					<Transformation a="1" b="0" c="0" d="1" /> <!-- Rotation or any other deformation 2x2 matrix -->
+					<Font Name="Helvetica" Size="10pt" Color="rrggbb" />					
+					<Text SourceColumn="name" DataStream="Person"/>
+					
+				</Item>	
+				<Item Type="StaticImage" version="1.0">
+					<Location PositionX="10cm" PositionY="0.4cm" />
+					<Src Name="himen.jpg" />
+					<Scale x="1cm" y="1cm" />					
+				</Item> 
+			</Items>					
+		</Balloon>		
+	</Balloons> 
+   </Page>
+</PdfFactoryTemplate>

@@ -1,0 +1,428 @@
+<PdfFactoryTemplate Name="EditorProject0">
+  <Location PositionX="0in" PositionY="0in" />
+  <Width Value="0in" />
+  <Height Value="0in" />
+  <WidthInPixels Value="0" />
+  <HeightInPixels Value="0" />
+  <Shape Type="Rectangle">
+    <Dimensions Width="0in" Height="0in" />
+  </Shape>
+  <Scale x="1" y="1" />
+  <Transformation a="1" b="0" c="0" d="1" />
+  <Rotation Value="0" />
+  <DockPosition Dock="None" />
+  <Anchor Top="True" Bottom="False" Left="True" Right="False" />
+  <Header Version="1.0">
+    <TemplateInfo Author="Unnamed" Title="Untitled" Subject="No Subject" Producer="Axiomcoders - PdfFactory (www.axiomcoders.com)" Date="1.1.2009" />
+  </Header>
+  <DataStreams>
+    <DataStream Name="Company">
+      <Columns>
+        <Column Name="Id" Type="string" />
+        <Column Name="Name" Type="string" />
+        <Column Name="Logo" Type="string" />
+        <Column Name="BinaryLogo" Type="string" />
+        <Column Name="Description" Type="string" />
+      </Columns>
+    </DataStream>
+    <DataStream Name="Product">
+      <Columns>
+        <Column Name="Id" Type="string" />
+        <Column Name="Name" Type="string" />
+        <Column Name="Description" Type="string" />
+      </Columns>
+    </DataStream>
+    <DataStream Name="Price">
+      <Columns>
+        <Column Name="ProductId" Type="string" />
+        <Column Name="Value" Type="string" />
+        <Column Name="Quantity" Type="string" />
+        <Column Name="Date" Type="string" />
+      </Columns>
+    </DataStream>
+  </DataStreams>
+  <Fonts>
+    <Font Name="Arial" SaveID="57" EmHeight="2048" Ascent="1854" Descent="434" Bold="0" Italic="0" EmbeddingLicense="1" ItalicAngle="0" BBoxLeft="512" BBoxRight="2060" BBoxTop="-1361" BBoxBottom="4096" StemV="5457" Flags="6" FirstChar="32" LastChar="255" Widths="[ 277 277 354 556 556 889 666 190 333 333 389 583 277 333 277 277 556 556 556 556 556 556 556 556 556 556 277 277 583 583 583 556 1015 666 666 722 722 666 610 777 722 277 500 666 556 833 722 777 666 777 722 666 610 722 666 943 666 666 610 277 277 277 469 556 333 556 556 500 556 556 277 556 556 222 222 500 222 833 556 556 556 556 333 500 277 556 500 722 500 500 500 333 259 333 583 750 556 750 222 556 333 1000 556 556 333 1000 666 333 1000 750 610 750 750 222 222 333 333 350 556 1000 333 1000 500 333 943 750 500 666 277 333 556 556 556 556 259 556 333 736 370 556 583 333 736 552 399 548 333 333 333 576 537 333 333 333 365 556 833 833 833 610 666 666 666 666 666 666 1000 722 666 666 666 666 277 277 277 277 722 722 777 777 777 777 777 583 777 722 722 722 722 666 666 610 556 556 556 556 556 556 889 500 556 556 556 556 277 277 277 277 556 556 556 556 556 556 556 548 610 556 556 556 556 500 556 500  ]" />
+  </Fonts>
+  <Page Name="Unnamed" Version="1.0">
+    <Location PositionX="0in" PositionY="0in" />
+    <Width Value="8.268in" />
+    <Height Value="11.693in" />
+    <WidthInPixels Value="595.296" />
+    <HeightInPixels Value="841.896" />
+    <Shape Type="Rectangle">
+      <Dimensions Width="8.268in" Height="11.693in" />
+    </Shape>
+    <Scale x="1" y="1" />
+    <Transformation a="1" b="0" c="0" d="1" />
+    <Rotation Value="0" />
+    <DockPosition Dock="None" />
+    <Anchor Top="True" Bottom="False" Left="True" Right="False" />
+    <Info Description="" />
+    <Size Width="8.268in" Height="11.693in" />
+    <FillColor R="255" G="255" B="255" A="255" />
+    <BackgroundImage Name="" />
+    <EmbeddedImage Name="" />
+    <Items />
+    <Balloons>
+      <Balloon Name="DynamicBalloon2" Type="Dynamic" Version="1.0" DataStream="Product">
+        <Location PositionX="0in" PositionY="0in" />
+        <Width Value="8.268in" />
+        <Height Value="1.855in" />
+        <WidthInPixels Value="595.296" />
+        <HeightInPixels Value="133.5494" />
+        <Shape Type="Rectangle">
+          <Dimensions Width="8.268in" Height="1.855in" />
+        </Shape>
+        <Scale x="1" y="1" />
+        <Transformation a="1" b="0" c="0" d="1" />
+        <Rotation Value="0" />
+        <DockPosition Dock="Top" />
+        <Anchor Top="True" Bottom="False" Left="True" Right="False" />
+        <AvailableOnEveryPage Value="True" />
+        <FitToContent Value="True" />
+        <FillingGeneratesNew Value="False" />
+        <FillCapacity Value="0" />
+        <CanGrow Value="True" />
+        <FillColor R="0" G="64" B="0" A="255" />
+        <TopBorder Enabled="False" Width="1" R="255" G="0" B="0" />
+        <LeftBorder Enabled="True" Width="1" R="0" G="0" B="0" />
+        <BottomBorder Enabled="False" Width="1" R="255" G="0" B="0" />
+        <RightBorder Enabled="True" Width="1" R="0" G="0" B="0" />
+        <Balloons>
+          <Balloon Name="StaticBalloon4" Type="Static" Version="1.0" DataStream="Product">
+            <Location PositionX="0in" PositionY="0in" />
+            <Width Value="8.268in" />
+            <Height Value="1.069in" />
+            <WidthInPixels Value="595.296" />
+            <HeightInPixels Value="76.97809" />
+            <Shape Type="Rectangle">
+              <Dimensions Width="8.268in" Height="1.069in" />
+            </Shape>
+            <Scale x="1" y="1" />
+            <Transformation a="1" b="0" c="0" d="1" />
+            <Rotation Value="0" />
+            <DockPosition Dock="Top" />
+            <Anchor Top="True" Bottom="False" Left="True" Right="False" />
+            <AvailableOnEveryPage Value="True" />
+            <FitToContent Value="False" />
+            <FillingGeneratesNew Value="False" />
+            <FillCapacity Value="0" />
+            <CanGrow Value="False" />
+            <FillColor R="255" G="255" B="255" A="0" />
+            <TopBorder Enabled="True" Width="1" R="0" G="0" B="0" />
+            <LeftBorder Enabled="False" Width="1" R="0" G="0" B="255" />
+            <BottomBorder Enabled="False" Width="1" R="0" G="0" B="255" />
+            <RightBorder Enabled="False" Width="1" R="0" G="0" B="255" />
+            <Balloons>
+              <Balloon Name="StaticBalloon5" Type="Static" Version="1.0" DataStream="">
+                <Location PositionX="0in" PositionY="0.783in" />
+                <Width Value="8.268in" />
+                <Height Value="0.286in" />
+                <WidthInPixels Value="595.296" />
+                <HeightInPixels Value="20.601" />
+                <Shape Type="Rectangle">
+                  <Dimensions Width="8.268in" Height="0.286in" />
+                </Shape>
+                <Scale x="1" y="1" />
+                <Transformation a="1" b="0" c="0" d="1" />
+                <Rotation Value="0" />
+                <DockPosition Dock="Bottom" />
+                <Anchor Top="True" Bottom="False" Left="True" Right="False" />
+                <AvailableOnEveryPage Value="True" />
+                <FitToContent Value="False" />
+                <FillingGeneratesNew Value="False" />
+                <FillCapacity Value="0" />
+                <CanGrow Value="False" />
+                <FillColor R="255" G="0" B="0" A="255" />
+                <TopBorder Enabled="True" Width="1" R="0" G="0" B="0" />
+                <LeftBorder Enabled="False" Width="1" R="0" G="0" B="0" />
+                <BottomBorder Enabled="False" Width="1" R="0" G="0" B="0" />
+                <RightBorder Enabled="False" Width="1" R="0" G="0" B="0" />
+                <Balloons />
+                <Items>
+                  <Item Name="StaticText2" Type="StaticText" Version="1.0">
+                    <Location PositionX="0.294in" PositionY="0.201in" />
+                    <Width Value="0.418in" />
+                    <Height Value="0.207in" />
+                    <WidthInPixels Value="30.10352" />
+                    <HeightInPixels Value="14.90625" />
+                    <Shape Type="Rectangle">
+                      <Dimensions Width="0.418in" Height="0.207in" />
+                    </Shape>
+                    <Scale x="1" y="1" />
+                    <Transformation a="1" b="0" c="0" d="1" />
+                    <Rotation Value="0" />
+                    <DockPosition Dock="None" />
+                    <Anchor Top="True" Bottom="False" Left="True" Right="False" />
+                    <Font SaveID="57" FontSize="12" FontColorR="0" FontColorG="0" FontColorB="0" />
+                    <Text Value="Date" />
+                  </Item>
+                  <Item Name="StaticText4" Type="StaticText" Version="1.0">
+                    <Location PositionX="6.141in" PositionY="0.201in" />
+                    <Width Value="0.447in" />
+                    <Height Value="0.207in" />
+                    <WidthInPixels Value="32.16016" />
+                    <HeightInPixels Value="14.90625" />
+                    <Shape Type="Rectangle">
+                      <Dimensions Width="0.447in" Height="0.207in" />
+                    </Shape>
+                    <Scale x="1" y="1" />
+                    <Transformation a="1" b="0" c="0" d="1" />
+                    <Rotation Value="0" />
+                    <DockPosition Dock="None" />
+                    <Anchor Top="True" Bottom="False" Left="True" Right="False" />
+                    <Font SaveID="57" FontSize="12" FontColorR="0" FontColorG="0" FontColorB="0" />
+                    <Text Value="Price" />
+                  </Item>
+                  <Item Name="StaticText3" Type="StaticText" Version="1.0">
+                    <Location PositionX="2.28in" PositionY="0.203in" />
+                    <Width Value="0.695in" />
+                    <Height Value="0.207in" />
+                    <WidthInPixels Value="50.03125" />
+                    <HeightInPixels Value="14.90625" />
+                    <Shape Type="Rectangle">
+                      <Dimensions Width="0.695in" Height="0.207in" />
+                    </Shape>
+                    <Scale x="1" y="1" />
+                    <Transformation a="1" b="0" c="0" d="1" />
+                    <Rotation Value="0" />
+                    <DockPosition Dock="None" />
+                    <Anchor Top="True" Bottom="False" Left="True" Right="False" />
+                    <Font SaveID="57" FontSize="12" FontColorR="0" FontColorG="0" FontColorB="0" />
+                    <Text Value="Quantity" />
+                  </Item>
+                </Items>
+              </Balloon>
+            </Balloons>
+            <Items>
+              <Item Name="DynamicText5" Type="DynamicText" Version="1.0">
+                <Location PositionX="0.316in" PositionY="0.61in" />
+                <Width Value="1.553in" />
+                <Height Value="0.207in" />
+                <WidthInPixels Value="111.8477" />
+                <HeightInPixels Value="14.90625" />
+                <Shape Type="Rectangle">
+                  <Dimensions Width="1.553in" Height="0.207in" />
+                </Shape>
+                <Scale x="1" y="1" />
+                <Transformation a="1" b="0" c="0" d="1" />
+                <Rotation Value="0" />
+                <DockPosition Dock="None" />
+                <Anchor Top="True" Bottom="False" Left="True" Right="False" />
+                <Font SaveID="57" FontSize="12" FontColorR="0" FontColorG="0" FontColorB="0" />
+                <Text DataStream="Product" SourceColumn="Description" />
+              </Item>
+              <Item Name="DynamicText4" Type="DynamicText" Version="1.0">
+                <Location PositionX="0.316in" PositionY="0.285in" />
+                <Width Value="1.153in" />
+                <Height Value="0.207in" />
+                <WidthInPixels Value="82.99023" />
+                <HeightInPixels Value="14.90625" />
+                <Shape Type="Rectangle">
+                  <Dimensions Width="1.153in" Height="0.207in" />
+                </Shape>
+                <Scale x="1" y="1" />
+                <Transformation a="1" b="0" c="0" d="1" />
+                <Rotation Value="0" />
+                <DockPosition Dock="None" />
+                <Anchor Top="True" Bottom="False" Left="True" Right="False" />
+                <Font SaveID="57" FontSize="12" FontColorR="0" FontColorG="0" FontColorB="0" />
+                <Text DataStream="Product" SourceColumn="Name" />
+              </Item>
+            </Items>
+          </Balloon>
+          <Balloon Name="DynamicBalloon3" Type="Dynamic" Version="1.0" DataStream="Price">
+            <Location PositionX="0in" PositionY="1.069in" />
+            <Width Value="8.268in" />
+            <Height Value="0.259in" />
+            <WidthInPixels Value="595.296" />
+            <HeightInPixels Value="18.6593" />
+            <Shape Type="Rectangle">
+              <Dimensions Width="8.268in" Height="0.259in" />
+            </Shape>
+            <Scale x="1" y="1" />
+            <Transformation a="1" b="0" c="0" d="1" />
+            <Rotation Value="0" />
+            <DockPosition Dock="Top" />
+            <Anchor Top="True" Bottom="False" Left="True" Right="False" />
+            <AvailableOnEveryPage Value="True" />
+            <FitToContent Value="False" />
+            <FillingGeneratesNew Value="False" />
+            <FillCapacity Value="0" />
+            <CanGrow Value="False" />
+            <FillColor R="224" G="224" B="224" A="255" />
+            <TopBorder Enabled="True" Width="1" R="0" G="0" B="0" />
+            <LeftBorder Enabled="False" Width="1" R="0" G="0" B="0" />
+            <BottomBorder Enabled="True" Width="1" R="0" G="0" B="0" />
+            <RightBorder Enabled="False" Width="1" R="0" G="0" B="0" />
+            <Balloons />
+            <Items>
+              <Item Name="DynamicText6" Type="DynamicText" Version="1.0">
+                <Location PositionX="6.103in" PositionY="0.186in" />
+                <Width Value="0.933in" />
+                <Height Value="0.207in" />
+                <WidthInPixels Value="67.20508" />
+                <HeightInPixels Value="14.90625" />
+                <Shape Type="Rectangle">
+                  <Dimensions Width="0.933in" Height="0.207in" />
+                </Shape>
+                <Scale x="1" y="1" />
+                <Transformation a="1" b="0" c="0" d="1" />
+                <Rotation Value="0" />
+                <DockPosition Dock="None" />
+                <Anchor Top="True" Bottom="False" Left="True" Right="False" />
+                <Font SaveID="57" FontSize="12" FontColorR="0" FontColorG="0" FontColorB="0" />
+                <Text DataStream="Price" SourceColumn="Value" />
+              </Item>
+              <Item Name="DynamicText7" Type="DynamicText" Version="1.0">
+                <Location PositionX="0.283in" PositionY="0.186in" />
+                <Width Value="0.857in" />
+                <Height Value="0.207in" />
+                <WidthInPixels Value="61.69727" />
+                <HeightInPixels Value="14.90625" />
+                <Shape Type="Rectangle">
+                  <Dimensions Width="0.857in" Height="0.207in" />
+                </Shape>
+                <Scale x="1" y="1" />
+                <Transformation a="1" b="0" c="0" d="1" />
+                <Rotation Value="0" />
+                <DockPosition Dock="None" />
+                <Anchor Top="True" Bottom="False" Left="True" Right="False" />
+                <Font SaveID="57" FontSize="12" FontColorR="0" FontColorG="0" FontColorB="0" />
+                <Text DataStream="Price" SourceColumn="Date" />
+              </Item>
+              <Item Name="DynamicText81" Type="DynamicText" Version="1.0">
+                <Location PositionX="2.29in" PositionY="0.186in" />
+                <Width Value="1.134in" />
+                <Height Value="0.207in" />
+                <WidthInPixels Value="81.625" />
+                <HeightInPixels Value="14.90625" />
+                <Shape Type="Rectangle">
+                  <Dimensions Width="1.134in" Height="0.207in" />
+                </Shape>
+                <Scale x="1" y="1" />
+                <Transformation a="1" b="0" c="0" d="1" />
+                <Rotation Value="0" />
+                <DockPosition Dock="None" />
+                <Anchor Top="True" Bottom="False" Left="True" Right="False" />
+                <Font SaveID="57" FontSize="12" FontColorR="0" FontColorG="0" FontColorB="0" />
+                <Text DataStream="Price" SourceColumn="Quantity" />
+              </Item>
+            </Items>
+          </Balloon>
+          <Balloon Name="StaticBalloon38" Type="Static" Version="1.0" DataStream="">
+            <Location PositionX="0in" PositionY="1.328in" />
+            <Width Value="8.268in" />
+            <Height Value="0.403in" />
+            <WidthInPixels Value="595.296" />
+            <HeightInPixels Value="29" />
+            <Shape Type="Rectangle">
+              <Dimensions Width="8.268in" Height="0.403in" />
+            </Shape>
+            <Scale x="1" y="1" />
+            <Transformation a="1" b="0" c="0" d="1" />
+            <Rotation Value="0" />
+            <DockPosition Dock="Top" />
+            <Anchor Top="True" Bottom="False" Left="True" Right="False" />
+            <AvailableOnEveryPage Value="True" />
+            <FitToContent Value="False" />
+            <FillingGeneratesNew Value="False" />
+            <FillCapacity Value="0" />
+            <CanGrow Value="False" />
+            <FillColor R="255" G="255" B="192" A="255" />
+            <TopBorder Enabled="True" Width="1" R="0" G="0" B="0" />
+            <LeftBorder Enabled="False" Width="1" R="0" G="0" B="0" />
+            <BottomBorder Enabled="True" Width="1" R="0" G="0" B="0" />
+            <RightBorder Enabled="False" Width="1" R="0" G="0" B="0" />
+            <Balloons />
+            <Items>
+              <Item Name="PrecalculatedItem3" Type="Precalculated" Version="1.0">
+                <Location PositionX="6.102in" PositionY="0.239in" />
+                <Width Value="1.096in" />
+                <Height Value="0.207in" />
+                <WidthInPixels Value="78.88867" />
+                <HeightInPixels Value="14.90625" />
+                <Shape Type="Rectangle">
+                  <Dimensions Width="1.096in" Height="0.207in" />
+                </Shape>
+                <Scale x="1" y="1" />
+                <Transformation a="1" b="0" c="0" d="1" />
+                <Rotation Value="0" />
+                <DockPosition Dock="None" />
+                <Anchor Top="True" Bottom="False" Left="True" Right="False" />
+                <Font SaveID="57" FontSize="12" FontColorR="0" FontColorG="0" FontColorB="0" />
+                <Text Value="Precalculated" />
+                <Formula Value="SUM(Price.Value)" />
+                <FormulaFormat Value="%f*.2" />
+              </Item>
+              <Item Name="StaticText5" Type="StaticText" Version="1.0">
+                <Location PositionX="5.546in" PositionY="0.239in" />
+                <Width Value="0.485in" />
+                <Height Value="0.207in" />
+                <WidthInPixels Value="34.91406" />
+                <HeightInPixels Value="14.90625" />
+                <Shape Type="Rectangle">
+                  <Dimensions Width="0.485in" Height="0.207in" />
+                </Shape>
+                <Scale x="1" y="1" />
+                <Transformation a="1" b="0" c="0" d="1" />
+                <Rotation Value="0" />
+                <DockPosition Dock="None" />
+                <Anchor Top="True" Bottom="False" Left="True" Right="False" />
+                <Font SaveID="57" FontSize="12" FontColorR="0" FontColorG="0" FontColorB="0" />
+                <Text Value="Total:" />
+              </Item>
+            </Items>
+          </Balloon>
+        </Balloons>
+        <Items />
+      </Balloon>
+      <Balloon Name="StaticBalloon5" Type="Static" Version="1.0" DataStream="">
+        <Location PositionX="0in" PositionY="11.326in" />
+        <Width Value="8.268in" />
+        <Height Value="0.367in" />
+        <WidthInPixels Value="595.296" />
+        <HeightInPixels Value="26.41761" />
+        <Shape Type="Rectangle">
+          <Dimensions Width="8.268in" Height="0.367in" />
+        </Shape>
+        <Scale x="1" y="1" />
+        <Transformation a="1" b="0" c="0" d="1" />
+        <Rotation Value="0" />
+        <DockPosition Dock="Bottom" />
+        <Anchor Top="True" Bottom="False" Left="True" Right="False" />
+        <AvailableOnEveryPage Value="True" />
+        <FitToContent Value="False" />
+        <FillingGeneratesNew Value="False" />
+        <FillCapacity Value="0" />
+        <CanGrow Value="False" />
+        <FillColor R="255" G="255" B="255" A="0" />
+        <TopBorder Enabled="False" Width="1" R="0" G="0" B="0" />
+        <LeftBorder Enabled="False" Width="1" R="0" G="0" B="0" />
+        <BottomBorder Enabled="False" Width="1" R="0" G="0" B="0" />
+        <RightBorder Enabled="False" Width="1" R="0" G="0" B="0" />
+        <Balloons />
+        <Items>
+          <Item Name="PageNumberItem1" Type="PageNumberItem" Version="1.0">
+            <Location PositionX="7.394in" PositionY="0.216in" />
+            <Width Value="0.724in" />
+            <Height Value="0.207in" />
+            <WidthInPixels Value="52.09375" />
+            <HeightInPixels Value="14.90625" />
+            <Shape Type="Rectangle">
+              <Dimensions Width="0.724in" Height="0.207in" />
+            </Shape>
+            <Scale x="1" y="1" />
+            <Transformation a="1" b="0" c="0" d="1" />
+            <Rotation Value="0" />
+            <DockPosition Dock="None" />
+            <Anchor Top="True" Bottom="False" Left="True" Right="False" />
+            <Font SaveID="57" FontSize="12" FontColorR="0" FontColorG="0" FontColorB="0" />
+            <Format Value="Page:{P}" />
+          </Item>
+        </Items>
+      </Balloon>
+    </Balloons>
+  </Page>
+</PdfFactoryTemplate>

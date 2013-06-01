@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Usage of PDF Reports (DataStream)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+
+<BODY><PRE style="BACKGROUND: #ffffff; COLOR: #000000"><SPAN style="COLOR: #696969"><FONT face=Arial color=#000000 size=2>This help provides information and detail sample code to show you what to do to create PDF<BR>file from your data base or other data source and pre created template file using Data Sources.
+
+This kind of generating PDF file using Data Sources is used when you have:
+1. classes that contains data
+2. database that is relatively small and is prepared for generation
+3. prepared data, and you want to generate PDF file fast without setting all of the callbacks</FONT>
+</SPAN><SPAN style="COLOR: #696969">
+// This is class that represents DataStream and properties inside represents Columns</SPAN>
+<SPAN style="FONT-WEIGHT: bold; COLOR: #800000">public</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">class</SPAN> Company
+<SPAN style="COLOR: #800080">{</SPAN>
+    <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">private</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">int</SPAN> id<SPAN style="COLOR: #800080">;</SPAN>
+    <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">public</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">int</SPAN> Id
+    <SPAN style="COLOR: #800080">{</SPAN>
+        get <SPAN style="COLOR: #800080">{</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">return</SPAN> id<SPAN style="COLOR: #800080">;</SPAN> <SPAN style="COLOR: #800080">}</SPAN>
+        set <SPAN style="COLOR: #800080">{</SPAN> id <SPAN style="COLOR: #808030">=</SPAN> value<SPAN style="COLOR: #800080">;</SPAN> <SPAN style="COLOR: #800080">}</SPAN>
+    <SPAN style="COLOR: #800080">}</SPAN>
+
+    <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">private</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">string</SPAN> name<SPAN style="COLOR: #800080">;</SPAN>
+    <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">public</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">string</SPAN> Name
+    <SPAN style="COLOR: #800080">{</SPAN>
+        get <SPAN style="COLOR: #800080">{</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">return</SPAN> name<SPAN style="COLOR: #800080">;</SPAN> <SPAN style="COLOR: #800080">}</SPAN>
+        set <SPAN style="COLOR: #800080">{</SPAN> name <SPAN style="COLOR: #808030">=</SPAN> value<SPAN style="COLOR: #800080">;</SPAN> <SPAN style="COLOR: #800080">}</SPAN>
+    <SPAN style="COLOR: #800080">}</SPAN>
+
+    <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">private</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">string</SPAN> logo<SPAN style="COLOR: #800080">;</SPAN>
+    <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">public</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">string</SPAN> Logo
+    <SPAN style="COLOR: #800080">{</SPAN>
+        get <SPAN style="COLOR: #800080">{</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">return</SPAN> logo<SPAN style="COLOR: #800080">;</SPAN> <SPAN style="COLOR: #800080">}</SPAN>
+        set <SPAN style="COLOR: #800080">{</SPAN> logo <SPAN style="COLOR: #808030">=</SPAN> value<SPAN style="COLOR: #800080">;</SPAN> <SPAN style="COLOR: #800080">}</SPAN>
+    <SPAN style="COLOR: #800080">}</SPAN>
+
+    <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">private</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">byte</SPAN><SPAN style="COLOR: #808030">[</SPAN><SPAN style="COLOR: #808030">]</SPAN> binaryLogo<SPAN style="COLOR: #800080">;</SPAN>
+    <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">public</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">byte</SPAN><SPAN style="COLOR: #808030">[</SPAN><SPAN style="COLOR: #808030">]</SPAN> BinaryLogo
+    <SPAN style="COLOR: #800080">{</SPAN>
+        get <SPAN style="COLOR: #800080">{</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">return</SPAN> binaryLogo<SPAN style="COLOR: #800080">;</SPAN> <SPAN style="COLOR: #800080">}</SPAN>
+        set <SPAN style="COLOR: #800080">{</SPAN> binaryLogo <SPAN style="COLOR: #808030">=</SPAN> value<SPAN style="COLOR: #800080">;</SPAN> <SPAN style="COLOR: #800080">}</SPAN>
+    <SPAN style="COLOR: #800080">}</SPAN>
+
+    <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">private</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">string</SPAN> description<SPAN style="COLOR: #800080">;</SPAN>
+    <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">public</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">string</SPAN> Description
+    <SPAN style="COLOR: #800080">{</SPAN>
+        get <SPAN style="COLOR: #800080">{</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">return</SPAN> description<SPAN style="COLOR: #800080">;</SPAN> <SPAN style="COLOR: #800080">}</SPAN>
+        set <SPAN style="COLOR: #800080">{</SPAN> description <SPAN style="COLOR: #808030">=</SPAN> value<SPAN style="COLOR: #800080">;</SPAN> <SPAN style="COLOR: #800080">}</SPAN>
+    <SPAN style="COLOR: #800080">}</SPAN>
+<SPAN style="COLOR: #800080">}</SPAN>
+
+
+
+<SPAN style="COLOR: #696969">// This is class that represents DataStream and properties inside represents Columns</SPAN>
+<SPAN style="FONT-WEIGHT: bold; COLOR: #800000">public</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">class</SPAN> Product
+<SPAN style="COLOR: #800080">{</SPAN>
+    <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">private</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">int</SPAN> manufacturerId<SPAN style="COLOR: #800080">;</SPAN>
+    <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">public</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">int</SPAN> ManufacturerId
+    <SPAN style="COLOR: #800080">{</SPAN>
+        get <SPAN style="COLOR: #800080">{</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">return</SPAN> manufacturerId<SPAN style="COLOR: #800080">;</SPAN> <SPAN style="COLOR: #800080">}</SPAN>
+        set <SPAN style="COLOR: #800080">{</SPAN> manufacturerId <SPAN style="COLOR: #808030">=</SPAN> value<SPAN style="COLOR: #800080">;</SPAN> <SPAN style="COLOR: #800080">}</SPAN>
+    <SPAN style="COLOR: #800080">}</SPAN>
+
+    <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">private</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">int</SPAN> id<SPAN style="COLOR: #800080">;</SPAN>
+    <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">public</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">int</SPAN> Id
+    <SPAN style="COLOR: #800080">{</SPAN>
+        get <SPAN style="COLOR: #800080">{</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">return</SPAN> id<SPAN style="COLOR: #800080">;</SPAN> <SPAN style="COLOR: #800080">}</SPAN>
+        set <SPAN style="COLOR: #800080">{</SPAN> id <SPAN style="COLOR: #808030">=</SPAN> value<SPAN style="COLOR: #800080">;</SPAN> <SPAN style="COLOR: #800080">}</SPAN>
+    <SPAN style="COLOR: #800080">}</SPAN>
+    <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">private</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">string</SPAN> name<SPAN style="COLOR: #800080">;</SPAN>
+    <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">public</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">string</SPAN> Name
+    <SPAN style="COLOR: #800080">{</SPAN>
+        get <SPAN style="COLOR: #800080">{</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">return</SPAN> name<SPAN style="COLOR: #800080">;</SPAN> <SPAN style="COLOR: #800080">}</SPAN>
+        set <SPAN style="COLOR: #800080">{</SPAN> name <SPAN style="COLOR: #808030">=</SPAN> value<SPAN style="COLOR: #800080">;</SPAN> <SPAN style="COLOR: #800080">}</SPAN>
+    <SPAN style="COLOR: #800080">}</SPAN>
+    <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">private</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">string</SPAN> description<SPAN style="COLOR: #800080">;</SPAN>
+    <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">public</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">string</SPAN> Description
+    <SPAN style="COLOR: #800080">{</SPAN>
+        get <SPAN style="COLOR: #800080">{</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">return</SPAN> description<SPAN style="COLOR: #800080">;</SPAN> <SPAN style="COLOR: #800080">}</SPAN>
+        set <SPAN style="COLOR: #800080">{</SPAN> description <SPAN style="COLOR: #808030">=</SPAN> value<SPAN style="COLOR: #800080">;</SPAN> <SPAN style="COLOR: #800080">}</SPAN>
+    <SPAN style="COLOR: #800080">}</SPAN>
+    <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">private</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">float</SPAN> quantity<SPAN style="COLOR: #800080">;</SPAN>
+    <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">public</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">float</SPAN> Quantity
+    <SPAN style="COLOR: #800080">{</SPAN>
+        get <SPAN style="COLOR: #800080">{</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">return</SPAN> quantity<SPAN style="COLOR: #800080">;</SPAN> <SPAN style="COLOR: #800080">}</SPAN>
+        set <SPAN style="COLOR: #800080">{</SPAN> quantity <SPAN style="COLOR: #808030">=</SPAN> value<SPAN style="COLOR: #800080">;</SPAN> <SPAN style="COLOR: #800080">}</SPAN>
+    <SPAN style="COLOR: #800080">}</SPAN>
+    <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">private</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">float</SPAN> price <SPAN style="COLOR: #808030">=</SPAN> <SPAN style="COLOR: #008c00">0</SPAN><SPAN style="COLOR: #800080">;</SPAN>
+    <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">public</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">float</SPAN> Price
+    <SPAN style="COLOR: #800080">{</SPAN>
+        get <SPAN style="COLOR: #800080">{</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">return</SPAN> price<SPAN style="COLOR: #800080">;</SPAN> <SPAN style="COLOR: #800080">}</SPAN>
+        set <SPAN style="COLOR: #800080">{</SPAN> price <SPAN style="COLOR: #808030">=</SPAN> value<SPAN style="COLOR: #800080">;</SPAN> <SPAN style="COLOR: #800080">}</SPAN>
+    <SPAN style="COLOR: #800080">}</SPAN>
+<SPAN style="COLOR: #800080">}</SPAN>
+
+
+
+<SPAN style="COLOR: #696969">/// This is main function that is used to generate PDF using DataStreams</SPAN>
+<SPAN style="FONT-WEIGHT: bold; COLOR: #800000">public</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">void</SPAN> GeneratePDF<SPAN style="COLOR: #808030">(</SPAN><SPAN style="COLOR: #808030">)</SPAN>
+<SPAN style="COLOR: #800080">{</SPAN>
+    <SPAN style="COLOR: #696969">//Create generator... Use your serial number</SPAN>
+    AxiomCoders<SPAN style="COLOR: #808030">.</SPAN>PdfReports<SPAN style="COLOR: #808030">.</SPAN>PdfReports pdfReporter <SPAN style="COLOR: #808030">=</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">new</SPAN> AxiomCoders<SPAN style="COLOR: #808030">.</SPAN>PdfReports<SPAN style="COLOR: #808030">.</SPAN>PdfReports<SPAN style="COLOR: #808030">(</SPAN>txtSerial<SPAN style="COLOR: #808030">.</SPAN>Text<SPAN style="COLOR: #808030">)</SPAN><SPAN style="COLOR: #800080">;</SPAN>
+
+    <SPAN style="COLOR: #696969">//Set data sources</SPAN>
+    pdfReporter<SPAN style="COLOR: #808030">.</SPAN>DataSources<SPAN style="COLOR: #808030">.</SPAN>Add<SPAN style="COLOR: #808030">(</SPAN>GeneratedCompany<SPAN style="COLOR: #808030">)</SPAN><SPAN style="COLOR: #800080">;</SPAN> <SPAN style="COLOR: #696969">//GeneratedCompany is class Company listed above</SPAN>
+    pdfReporter<SPAN style="COLOR: #808030">.</SPAN>DataSources<SPAN style="COLOR: #808030">.</SPAN>Add<SPAN style="COLOR: #808030">(</SPAN>Products<SPAN style="COLOR: #808030">)</SPAN><SPAN style="COLOR: #800080">;</SPAN>
+
+    pdfReporter<SPAN style="COLOR: #808030">.</SPAN>TemplateFileName <SPAN style="COLOR: #808030">=</SPAN> txtTemplateFile<SPAN style="COLOR: #808030">.</SPAN>Text<SPAN style="COLOR: #800080">;</SPAN>
+    pdfReporter<SPAN style="COLOR: #808030">.</SPAN>Logging <SPAN style="COLOR: #808030">=</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">true</SPAN><SPAN style="COLOR: #800080">;</SPAN>
+    pdfReporter<SPAN style="COLOR: #808030">.</SPAN>GeneratePdf<SPAN style="COLOR: #808030">(</SPAN>txtPDF<SPAN style="COLOR: #808030">.</SPAN>Text<SPAN style="COLOR: #808030">)</SPAN><SPAN style="COLOR: #800080">;</SPAN>
+<SPAN style="COLOR: #800080">}</SPAN>
+</PRE>
+</BODY>
+</html>

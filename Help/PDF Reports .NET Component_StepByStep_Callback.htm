@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Usage of PDF Reports (Callbacks)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+
+<BODY><PRE style="BACKGROUND: #ffffff; COLOR: #000000"><SPAN style="COLOR: #696969"><FONT face=Arial><FONT size=2><FONT color=#000000>This help provides information and detail sample code to show you what to do to create PDF
+file from your data base or other data source and pre created template file using callbacks</FONT>.</FONT></FONT>
+
+<FONT face=Arial><FONT color=#000000 size=2>This kind of generating PDF file using callbacks is used when you have:
+1. Images on hard drive
+2. Data in txt file
+3. Data on network
+4. Data base that is to big to be loaded entirely in memory and need to be read partially</FONT></FONT>
+
+/// &lt;summary&gt;</SPAN>
+<SPAN style="COLOR: #696969">/// Callback that is used for initializing your data.</SPAN>
+<SPAN style="COLOR: #696969">/// &lt;/summary&gt;</SPAN>
+<SPAN style="COLOR: #696969">/// &lt;param name="parentDataStream"&gt;&lt;/param&gt;</SPAN>
+<SPAN style="COLOR: #696969">/// &lt;param name="dataStreamName"&gt;&lt;/param&gt;</SPAN>
+<SPAN style="COLOR: #696969">/// &lt;param name="itemsCount"&gt;&lt;/param&gt;</SPAN>
+<SPAN style="COLOR: #696969">/// &lt;returns&gt;&lt;/returns&gt;</SPAN>
+<SPAN style="FONT-WEIGHT: bold; COLOR: #800000">bool</SPAN> InitDataCallback<SPAN style="COLOR: #808030">(</SPAN><SPAN style="FONT-WEIGHT: bold; COLOR: #800000">string</SPAN> parentDataStream<SPAN style="COLOR: #808030">,</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">string</SPAN> dataStreamName<SPAN style="COLOR: #808030">,</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">ref</SPAN> System<SPAN style="COLOR: #808030">.</SPAN>Int32 itemsCount<SPAN style="COLOR: #808030">)</SPAN>
+<SPAN style="COLOR: #800080">{</SPAN>
+    <SPAN style="COLOR: #696969">//This callback is used for initializing your data stack, what ever it is. In our case</SPAN>
+    <SPAN style="COLOR: #696969">//it's simple file reading, and file is JPEG image on hard drive.</SPAN>
+    <SPAN style="COLOR: #696969">//Remember that this callback is called only once for each DataStrem.</SPAN>
+    tmpImage <SPAN style="COLOR: #808030">=</SPAN> System<SPAN style="COLOR: #808030">.</SPAN>IO<SPAN style="COLOR: #808030">.</SPAN>File<SPAN style="COLOR: #808030">.</SPAN>ReadAllBytes<SPAN style="COLOR: #808030">(</SPAN><SPAN style="COLOR: #800000">"</SPAN><SPAN style="COLOR: #0000e6">../../Depending/Image1.jpg</SPAN><SPAN style="COLOR: #800000">"</SPAN><SPAN style="COLOR: #808030">)</SPAN><SPAN style="COLOR: #800080">;</SPAN>
+    <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">return</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">true</SPAN><SPAN style="COLOR: #800080">;</SPAN>
+<SPAN style="COLOR: #800080">}</SPAN>
+
+
+
+
+<SPAN style="COLOR: #696969">/// &lt;summary&gt;</SPAN>
+<SPAN style="COLOR: #696969">/// In this callback we are going through our data</SPAN>
+<SPAN style="COLOR: #696969">/// &lt;/summary&gt;</SPAN>
+<SPAN style="COLOR: #696969">/// &lt;param name="dataStreamName"&gt;&lt;/param&gt;</SPAN>
+<SPAN style="COLOR: #696969">/// &lt;returns&gt;&lt;/returns&gt;</SPAN>
+<SPAN style="FONT-WEIGHT: bold; COLOR: #800000">bool</SPAN> ReadDataCall<SPAN style="COLOR: #808030">(</SPAN><SPAN style="FONT-WEIGHT: bold; COLOR: #800000">string</SPAN> dataStreamName<SPAN style="COLOR: #808030">)</SPAN>
+<SPAN style="COLOR: #800080">{</SPAN>
+    <SPAN style="COLOR: #696969">//In here you move your pointer through data base or move in your array</SPAN>
+    <SPAN style="COLOR: #696969">//or anything else you have for data storage.</SPAN>
+    <SPAN style="COLOR: #696969">//Return false when you done reading.</SPAN>
+    <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">if</SPAN><SPAN style="COLOR: #808030">(</SPAN>dataStreamName <SPAN style="COLOR: #808030">=</SPAN><SPAN style="COLOR: #808030">=</SPAN> <SPAN style="COLOR: #800000">"</SPAN><SPAN style="COLOR: #0000e6">Data1</SPAN><SPAN style="COLOR: #800000">"</SPAN><SPAN style="COLOR: #808030">)</SPAN>
+    <SPAN style="COLOR: #800080">{</SPAN>
+        <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">if</SPAN><SPAN style="COLOR: #808030">(</SPAN>itemCounter <SPAN style="COLOR: #808030">=</SPAN><SPAN style="COLOR: #808030">=</SPAN> numOfItems<SPAN style="COLOR: #808030">)</SPAN>
+        <SPAN style="COLOR: #800080">{</SPAN>
+            <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">return</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">false</SPAN><SPAN style="COLOR: #800080">;</SPAN>
+        <SPAN style="COLOR: #800080">}</SPAN>
+        itemCounter<SPAN style="COLOR: #808030">+</SPAN><SPAN style="COLOR: #808030">+</SPAN><SPAN style="COLOR: #800080">;</SPAN>
+        <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">return</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">true</SPAN><SPAN style="COLOR: #800080">;</SPAN>
+    <SPAN style="COLOR: #800080">}</SPAN>
+    <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">return</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">false</SPAN><SPAN style="COLOR: #800080">;</SPAN>
+<SPAN style="COLOR: #800080">}</SPAN>
+
+
+
+<SPAN style="COLOR: #696969">/// &lt;summary&gt;</SPAN>
+<SPAN style="COLOR: #696969">/// This callback returning actual data if data is byte array</SPAN>
+<SPAN style="COLOR: #696969">/// &lt;/summary&gt;</SPAN>
+<SPAN style="COLOR: #696969">/// &lt;param name="dataStreamName"&gt;&lt;/param&gt;</SPAN>
+<SPAN style="COLOR: #696969">/// &lt;param name="columnName"&gt;&lt;/param&gt;</SPAN>
+<SPAN style="COLOR: #696969">/// &lt;returns&gt;&lt;/returns&gt;</SPAN>
+<SPAN style="FONT-WEIGHT: bold; COLOR: #800000">byte</SPAN><SPAN style="COLOR: #808030">[</SPAN><SPAN style="COLOR: #808030">]</SPAN> ReqDataCall<SPAN style="COLOR: #808030">(</SPAN><SPAN style="FONT-WEIGHT: bold; COLOR: #800000">string</SPAN> dataStreamName<SPAN style="COLOR: #808030">,</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">string</SPAN> columnName<SPAN style="COLOR: #808030">)</SPAN>
+<SPAN style="COLOR: #800080">{</SPAN>
+    <SPAN style="COLOR: #696969">//In here we check to see what kind of data is requested by generator and</SPAN>
+    <SPAN style="COLOR: #696969">//if we have that kind of data return it. In this case, </SPAN>
+    <SPAN style="COLOR: #696969">//that is byte array that contains Image data from specific folder.</SPAN>
+    <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">if</SPAN><SPAN style="COLOR: #808030">(</SPAN>dataStreamName <SPAN style="COLOR: #808030">=</SPAN><SPAN style="COLOR: #808030">=</SPAN> <SPAN style="COLOR: #800000">"</SPAN><SPAN style="COLOR: #0000e6">Data1</SPAN><SPAN style="COLOR: #800000">"</SPAN> &amp;&amp; columnName <SPAN style="COLOR: #808030">=</SPAN><SPAN style="COLOR: #808030">=</SPAN> <SPAN style="COLOR: #800000">"</SPAN><SPAN style="COLOR: #0000e6">Column1</SPAN><SPAN style="COLOR: #800000">"</SPAN><SPAN style="COLOR: #808030">)</SPAN>
+    <SPAN style="COLOR: #800080">{</SPAN>
+        <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">return</SPAN> tmpImage<SPAN style="COLOR: #800080">;</SPAN>
+    <SPAN style="COLOR: #800080">}</SPAN>
+    <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">return</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">null</SPAN><SPAN style="COLOR: #800080">;</SPAN>
+<SPAN style="COLOR: #800080">}</SPAN>
+
+
+
+<SPAN style="COLOR: #696969">/// &lt;summary&gt;</SPAN>
+<SPAN style="COLOR: #696969">/// This callback returning actual data if data is represented as string</SPAN>
+<SPAN style="COLOR: #696969">/// &lt;/summary&gt;</SPAN>
+<SPAN style="COLOR: #696969">/// &lt;param name="dataStreamName"&gt;&lt;/param&gt;</SPAN>
+<SPAN style="COLOR: #696969">/// &lt;param name="columnName"&gt;&lt;/param&gt;</SPAN>
+<SPAN style="COLOR: #696969">/// &lt;returns&gt;&lt;/returns&gt;</SPAN>
+<SPAN style="FONT-WEIGHT: bold; COLOR: #800000">string</SPAN> ReqStringCall<SPAN style="COLOR: #808030">(</SPAN><SPAN style="FONT-WEIGHT: bold; COLOR: #800000">string</SPAN> dataStreamName<SPAN style="COLOR: #808030">,</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">string</SPAN> columnName<SPAN style="COLOR: #808030">)</SPAN>
+<SPAN style="COLOR: #800080">{</SPAN>
+    <SPAN style="COLOR: #696969">//In here we check to see what kind of data is requested by generator and</SPAN>
+    <SPAN style="COLOR: #696969">//if we have that kind of data return it. In this example that is simple text line.</SPAN>
+    <SPAN style="COLOR: #696969">//You can give it what ever you want, if you going through data base, then it is current data.</SPAN>
+    <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">if</SPAN><SPAN style="COLOR: #808030">(</SPAN>dataStreamName <SPAN style="COLOR: #808030">=</SPAN><SPAN style="COLOR: #808030">=</SPAN> <SPAN style="COLOR: #800000">"</SPAN><SPAN style="COLOR: #0000e6">Data1</SPAN><SPAN style="COLOR: #800000">"</SPAN> &amp;&amp; columnName <SPAN style="COLOR: #808030">=</SPAN><SPAN style="COLOR: #808030">=</SPAN> <SPAN style="COLOR: #800000">"</SPAN><SPAN style="COLOR: #0000e6">Column2</SPAN><SPAN style="COLOR: #800000">"</SPAN><SPAN style="COLOR: #808030">)</SPAN>
+    <SPAN style="COLOR: #800080">{</SPAN>
+        <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">return</SPAN> <SPAN style="COLOR: #800000">"</SPAN><SPAN style="COLOR: #0000e6">String from Callback</SPAN><SPAN style="COLOR: #800000">"</SPAN><SPAN style="COLOR: #800080">;</SPAN>
+    <SPAN style="COLOR: #800080">}</SPAN>
+    <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">return</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">null</SPAN><SPAN style="COLOR: #800080">;</SPAN>
+<SPAN style="COLOR: #800080">}</SPAN>
+
+
+
+<SPAN style="COLOR: #696969">/// &lt;summary&gt;</SPAN>
+<SPAN style="COLOR: #696969">/// This is our main function where we create generator, initialize all callbacks</SPAN>
+<SPAN style="COLOR: #696969">/// &lt;/summary&gt;</SPAN>
+<SPAN style="COLOR: #696969">/// &lt;param name="sender"&gt;&lt;/param&gt;</SPAN>
+<SPAN style="COLOR: #696969">/// &lt;param name="e"&gt;&lt;/param&gt;</SPAN>
+<SPAN style="FONT-WEIGHT: bold; COLOR: #800000">private</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">void</SPAN> btnCallbackGeneration_Click<SPAN style="COLOR: #808030">(</SPAN><SPAN style="FONT-WEIGHT: bold; COLOR: #800000">object</SPAN> sender<SPAN style="COLOR: #808030">,</SPAN> EventArgs e<SPAN style="COLOR: #808030">)</SPAN>
+<SPAN style="COLOR: #800080">{</SPAN>
+    <SPAN style="COLOR: #696969">//First we need to create our Generator...  (Remember to use your serial number as param in constructor)</SPAN>
+    AxiomCoders<SPAN style="COLOR: #808030">.</SPAN>PdfReports<SPAN style="COLOR: #808030">.</SPAN>PdfReports pdfReporter <SPAN style="COLOR: #808030">=</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">new</SPAN> AxiomCoders<SPAN style="COLOR: #808030">.</SPAN>PdfReports<SPAN style="COLOR: #808030">.</SPAN>PdfReports<SPAN style="COLOR: #808030">(</SPAN>txtSerial<SPAN style="COLOR: #808030">.</SPAN>Text<SPAN style="COLOR: #808030">)</SPAN><SPAN style="COLOR: #800080">;</SPAN>
+
+    <SPAN style="COLOR: #696969">//Creation of all needed callbacks</SPAN>
+    pdfReporter<SPAN style="COLOR: #808030">.</SPAN>InitializeDataStream <SPAN style="COLOR: #808030">+</SPAN><SPAN style="COLOR: #808030">=</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">new</SPAN> AxiomCoders<SPAN style="COLOR: #808030">.</SPAN>PdfReports<SPAN style="COLOR: #808030">.</SPAN>InitializeDataStreamCallback<SPAN style="COLOR: #808030">(</SPAN>InitDataCallback<SPAN style="COLOR: #808030">)</SPAN><SPAN style="COLOR: #800080">;</SPAN>
+    pdfReporter<SPAN style="COLOR: #808030">.</SPAN>ReadData <SPAN style="COLOR: #808030">+</SPAN><SPAN style="COLOR: #808030">=</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">new</SPAN> AxiomCoders<SPAN style="COLOR: #808030">.</SPAN>PdfReports<SPAN style="COLOR: #808030">.</SPAN>ReadDataCallback<SPAN style="COLOR: #808030">(</SPAN>ReadDataCall<SPAN style="COLOR: #808030">)</SPAN><SPAN style="COLOR: #800080">;</SPAN>
+    pdfReporter<SPAN style="COLOR: #808030">.</SPAN>RequestBinaryData <SPAN style="COLOR: #808030">+</SPAN><SPAN style="COLOR: #808030">=</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">new</SPAN> AxiomCoders<SPAN style="COLOR: #808030">.</SPAN>PdfReports<SPAN style="COLOR: #808030">.</SPAN>RequestBinaryDataCallback<SPAN style="COLOR: #808030">(</SPAN>ReqDataCall<SPAN style="COLOR: #808030">)</SPAN><SPAN style="COLOR: #800080">;</SPAN>
+    pdfReporter<SPAN style="COLOR: #808030">.</SPAN>RequestStringData <SPAN style="COLOR: #808030">+</SPAN><SPAN style="COLOR: #808030">=</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">new</SPAN> AxiomCoders<SPAN style="COLOR: #808030">.</SPAN>PdfReports<SPAN style="COLOR: #808030">.</SPAN>RequestStringDataCallback<SPAN style="COLOR: #808030">(</SPAN>ReqStringCall<SPAN style="COLOR: #808030">)</SPAN><SPAN style="COLOR: #800080">;</SPAN>
+
+    <SPAN style="COLOR: #696969">//Set template file name, and call actual generating of you PDF file.</SPAN>
+    pdfReporter<SPAN style="COLOR: #808030">.</SPAN>TemplateFileName <SPAN style="COLOR: #808030">=</SPAN> txtTemplateFile<SPAN style="COLOR: #808030">.</SPAN>Text<SPAN style="COLOR: #800080">;</SPAN>
+    pdfReporter<SPAN style="COLOR: #808030">.</SPAN>Logging <SPAN style="COLOR: #808030">=</SPAN> <SPAN style="FONT-WEIGHT: bold; COLOR: #800000">true</SPAN><SPAN style="COLOR: #800080">;</SPAN>
+    pdfReporter<SPAN style="COLOR: #808030">.</SPAN>GeneratePdf<SPAN style="COLOR: #808030">(</SPAN>txtPDF<SPAN style="COLOR: #808030">.</SPAN>Text<SPAN style="COLOR: #808030">)</SPAN><SPAN style="COLOR: #800080">;</SPAN>
+<SPAN style="COLOR: #800080">}</SPAN>
+</PRE>
+</BODY>
+</html>

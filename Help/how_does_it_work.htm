@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10pt;
+}
+-->
+</style></head>
+
+<body>
+<p class="MsoNormal"><span class="SpellE"><b style='mso-bidi-font-weight:normal'><span
+style='font-size:10.0pt;font-family:Arial'>AxiomCoders</span></b></span><b
+style='mso-bidi-font-weight:normal'><span style='font-size:10.0pt;font-family:
+Arial'> PDF Reports</span></b><span style='font-size:10.0pt;font-family:Arial'> solution works like this:
+    <o:p></o:p>
+  </span><br />
+  <br />
+  <img src="how_does_it_work_files/working_diagram.jpg" alt="working diagram" width="400" height="450" /></p>
+<p class="MsoNormal">1) You design your template file by using PDF Reports Template Editor. <br />
+2) Your application integrates PDF Reports .NET Component, PDF Factory or some other Package.<br />
+3) You tell your integrated component to use some template file<br />
+4) You feed integrated component with some data <br />
+5) You get your generated PDF File</p>
+<p class="MsoNormal">Later topics will describe in details how each application is used to achive this goal. </p>
+<p class="MsoNormal"><strong>How PDF File Generator works?</strong></p>
+<p class="MsoNormal">Complete generation is done by using fast native code written in lowest possible language. This means no printer drivers that create PDF files or any 3rd party is required for PDF files to be created. <br />
+    <strong>PDF Reports .NET Component</strong> is the only thing required for creating PDF files. This way we achieved the best generation speed and reduced dependencies to zero. <br />
+    <strong>PDF Factory</strong> is basic library written in native code that is used to create PDF Files from appropriate template and given data. This native library can be used on any kind of operating system but currently we only support Linux and Windows. If you need more information on this native library please <a href="mailto:office@axiomcoders.com">contact us</a> </p>
+<p class="MsoNormal"><strong>I am Developer; In Technical langauge how PDF Reports works? </strong></p>
+<p class="MsoNormal">PDF Reports - Template Editor is stand-alone application written in .NET that is designed to be used by anyone. Our goal was to make non-developers to be able to make your reports look-and-feel and whole editor is designed to be as simple as it can be. Details on how this editor works and how templates are created are in appropriate topic of this help.</p>
+<p class="MsoNormal">Your .NET Application need to add reference to PDF Reports .NET Component in order to use it. When you do this you are using it like this:<br />
+1) Attach template file by single call to appropriate method<br />
+2) Attach data source to PDFReports object OR set appropriate events in case you want to manually feed data (Data source can be any object or DataTable, DataSet) <br />
+3) Single call to method to generate PDF File (if events are used they will be called when data is required).
+</p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal">&nbsp;</p>
+<p class="MsoNormal">&nbsp; </p>
+<p class="MsoNormal">&nbsp; </p>
+</body>
+
+</html>

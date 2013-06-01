@@ -1,0 +1,478 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F2990DE6-BEDD-4178-8881-80736E6B321C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AxiomCoders.PdfTemplateEditor</RootNamespace>
+    <AssemblyName>PdfTemplateEditor</AssemblyName>
+    <ApplicationIcon>pdfreports.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\ColorDialogComponents\ColorBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ColorDialogComponents\ColorPickerCtrl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ColorDialogComponents\ColorPickerCtrl.designer.cs">
+      <DependentUpon>ColorPickerCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ColorDialogComponents\ColorTable.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ColorDialogComponents\ColorWheel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ColorDialogComponents\ColorWheelCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ColorDialogComponents\ColorWheelCtrl.designer.cs">
+      <DependentUpon>ColorWheelCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ColorDialogComponents\EyedropColorPicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ColorDialogComponents\HSLColor.cs" />
+    <Compile Include="Controls\ColorDialogComponents\LabelRotate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ColorDialogComponents\Util.cs" />
+    <Compile Include="Common\AppOptions.cs" />
+    <Compile Include="Common\FontHelpers.cs" />
+    <Compile Include="Common\Loger.cs" />
+    <Compile Include="Common\RectangleNormal.cs" />
+    <Compile Include="Common\Renderer.cs" />
+    <Compile Include="Common\UnitsManager.cs" />
+    <Compile Include="Controls\ColorDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\ColorDlg.Designer.cs">
+      <DependentUpon>ColorDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FloatingPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\GradientColorPickerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\GradientColorPickerForm.Designer.cs">
+      <DependentUpon>GradientColorPickerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GradientPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\NumericTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="EditorItems\Balloon.cs" />
+    <Compile Include="EditorItems\BaseTextItems.cs" />
+    <Compile Include="EditorItems\DynamicImage.cs" />
+    <Compile Include="EditorItems\PageNumberItem.cs" />
+    <Compile Include="EditorItems\PrecalculatedItem.cs" />
+    <Compile Include="EditorStuff\Anchor.cs" />
+    <Compile Include="EditorStuff\BalloonBorder.cs" />
+    <Compile Include="EditorStuff\CommandItem.cs" />
+    <Compile Include="EditorItems\Counter.cs" />
+    <Compile Include="EditorItems\DateTime.cs" />
+    <Compile Include="EditorItems\DummyItem.cs" />
+    <Compile Include="EditorItems\DynamicBalloon.cs" />
+    <Compile Include="EditorItems\DynamicText.cs" />
+    <Compile Include="EditorItems\EditorItemsCollection.cs" />
+    <Compile Include="EditorItems\GradientColorConverter.cs" />
+    <Compile Include="EditorItems\GradientColors.cs" />
+    <Compile Include="EditorItems\GradientEditor.cs" />
+    <Compile Include="EditorItems\GradientType.cs" />
+    <Compile Include="EditorItems\Image.cs" />
+    <Compile Include="EditorItems\ItemEventHandler.cs" />
+    <Compile Include="EditorItems\RectangleShape.cs" />
+    <Compile Include="EditorItems\ReportPage.cs" />
+    <Compile Include="EditorItems\ReportPageViewer.cs" />
+    <Compile Include="EditorItems\Ruler.cs" />
+    <Compile Include="EditorItems\StaticBalloon.cs" />
+    <Compile Include="EditorItems\StaticText.cs" />
+    <Compile Include="EditorStuff\ActionManager.cs" />
+    <Compile Include="EditorStuff\Column.cs" />
+    <Compile Include="EditorStuff\ComboBoxPropertyEditor.cs" />
+    <Compile Include="EditorStuff\DataStream.cs" />
+    <Compile Include="EditorStuff\DynamicEditorItemInterface.cs" />
+    <Compile Include="EditorStuff\EditorAction.cs" />
+    <Compile Include="EditorStuff\EditorController.cs" />
+    <Compile Include="EditorStuff\EditorCreateAction.cs" />
+    <Compile Include="EditorStuff\EditorDeleteAction.cs" />
+    <Compile Include="EditorStuff\EditorFont.cs" />
+    <Compile Include="EditorStuff\EditorGrid.cs" />
+    <Compile Include="EditorStuff\EditorItem.cs" />
+    <Compile Include="EditorStuff\EditorItemFactory.cs" />
+    <Compile Include="EditorStuff\EditorItemTypes.cs" />
+    <Compile Include="EditorStuff\EditorItemViewer.cs" />
+    <Compile Include="EditorStuff\EditorOptions.cs" />
+    <Compile Include="EditorStuff\EditorProject.cs" />
+    <Compile Include="EditorStuff\EditorToolBarPlugin.cs" />
+    <Compile Include="EditorStuff\EditorUpdateAction.cs" />
+    <Compile Include="EditorStuff\EditorViewer.cs" />
+    <Compile Include="EditorStuff\FontManager.cs" />
+    <Compile Include="EditorStuff\MovingCommandItem.cs" />
+    <Compile Include="EditorStuff\SaveLoadManager.cs" />
+    <Compile Include="EditorStuff\SaveLoadMechanism.cs" />
+    <Compile Include="EditorStuff\SizingCommandItem.cs" />
+    <Compile Include="Forms\AnchorProperty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AnchorProperty.Designer.cs">
+      <DependentUpon>AnchorProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BorderPropertyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BorderPropertyForm.Designer.cs">
+      <DependentUpon>BorderPropertyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DataStreamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DataStreamForm.Designer.cs">
+      <DependentUpon>DataStreamForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NewProjectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewProjectForm.Designer.cs">
+      <DependentUpon>NewProjectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProjectInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProjectInformation.Designer.cs">
+      <DependentUpon>ProjectInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReportForm.Designer.cs">
+      <DependentUpon>ReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\tempForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\tempForm.Designer.cs">
+      <DependentUpon>tempForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UserTextInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UserTextInput.Designer.cs">
+      <DependentUpon>UserTextInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ViewOptionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ViewOptionsForm.Designer.cs">
+      <DependentUpon>ViewOptionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\GradientColorPickerForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>GradientColorPickerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AnchorProperty.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>AnchorProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BorderPropertyForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>BorderPropertyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DataStreamForm.resx">
+      <DependentUpon>DataStreamForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewProjectForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>NewProjectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReportForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\tempForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>tempForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UserTextInput.resx">
+      <DependentUpon>UserTextInput.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ViewOptionsForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ViewOptionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\colorbarIndicators.bmp" />
+    <None Include="Resources\popupcontainerbuttons.bmp" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Controls\ColorDialogComponents\Images.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\AxiomShared\C#\SharedNet20\AxiomCoders.SharedNet20.2005.csproj">
+      <Project>{50BD4603-0ABD-445F-B9B2-E31171F63457}</Project>
+      <Name>AxiomCoders.SharedNet20.2005</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PdfReports.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\square_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\square_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paste_document.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ram.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifying-glass-search-find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fonts_resize_aa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\font_a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\window_javascript_console.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cursor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\photo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\layout_content.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database_gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\date.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder_page.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_paste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\door_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_rotate_clockwise.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_rotate_anticlockwise.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wrench.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chart_organisation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\make_same_width.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\make_same_height.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\make_same_sizes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\make_same_v_space.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\decrease_h_space.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\decrease_w_space.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\increase_h_space.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\increase_w_space.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\make_same_h_space.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\make_no_h_space.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\make_no_v_space.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\picture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="pdfreports.ico" />
+    <Content Include="PDFTemplateEditor_ReadMe.txt" />
+    <None Include="Resources\application_edit.png" />
+    <EmbeddedResource Include="Controls\ColorDialogComponents\ColorPickerCtrl.resx">
+      <DependentUpon>ColorPickerCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ColorDialogComponents\ColorWheelCtrl.resx">
+      <DependentUpon>ColorWheelCtrl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ColorDlg.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ColorDlg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProjectInformation.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ProjectInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\eyedropper.bmp" />
+    <None Include="Resources\calculator.png" />
+    <None Include="Resources\book_help.png" />
+    <None Include="Resources\book_open_help.png" />
+    <None Include="Resources\door_out.png" />
+    <None Include="Resources\note.png" />
+    <None Include="Resources\palette.png" />
+    <None Include="Resources\world.png" />
+    <None Include="Resources\world_link.png" />
+    <None Include="Resources\information.png" />
+    <None Include="Resources\page_save.png" />
+    <None Include="Resources\page.png" />
+    <None Include="Resources\disk_multiple.png" />
+    <None Include="Resources\NoDynamicImage.jpg" />
+    <None Include="Resources\NoImage.jpg" />
+    <None Include="Resources\page_red.png" />
+    <None Include="Resources\image_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

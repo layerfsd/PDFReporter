@@ -1,0 +1,135 @@
+<PdfFactoryTemplate>
+   <Header version="1.0">
+	<TemplateInfo Author="Pera Peric" Date="3.3.2008" />
+   </Header>
+   
+   <DataStreams version="1.0">
+		<DataStream Name="Person">	
+			<Columns>
+				<Column Name="id" Type="int" />
+				<Column Name="name" Type="string" />
+			</Columns>
+		</DataStream>
+		<DataStream Name="Phones" >
+			<Columns>
+				<Column Name="id" Type="int" />
+				<Column Name="personid" Type="int" />
+				<Column Name="phone" Type="string" />
+			</Columns>		
+		</DataStream>
+		<Connections>
+			<Connection ParentDataStream="Persons" ParentColumn="id" ChildDataStream="Phones" ChildColumn="personid" />
+		</Connections>
+   </DataStreams>
+   <Page version="1.0">	 
+	<!-- Describes looking of one page -->
+	<Info Description="Some metadata description" />
+	<Size Width="21cm" Height="24cm"></Size>
+		
+	<Balloons>   
+		<!-- 
+		  Possible balloon Types: 
+			Static - static balloons are populated with one set of data that is not chaning. Static balloons are suitable for titles, table headers, footers, ...
+			Dynamic - same ballon can be populated with different set of data. Examples are: table data, ...
+		-->
+		<Balloon Name="Title" Type="Static" DataStream="Person" Version="1.0">	
+			<AvailableOnEveryPage Value="True" /> <!-- If this ballon should be used on all pages -->
+			<FillingGeneratesNew Value="True" /> <!-- If this ballon is filled with some other ballons then new ballon of this type will be generated -->
+			<FillCapacity Value="10" /> <!-- If more than this number of dynamic ballons is reached ballon will try to generate another one, or stop dynamic generation, 0 = infinite -->
+			<CanGrow Value="True" /> <!-- is this ballon allowed to grow when there is no more place. Page is the only entity that cannot grow -->
+
+			<Location PositionX="0cm" PositionY="0cm" /> <!-- Where is balloon's location -->   
+			<Shape Type="Rectangle"> 
+				<Dimensions Width="21cm" Height="2cm" /> 
+			</Shape>
+			<Items>
+				<Item Type="StaticText" version="1.0">
+					<Location PositionX="0.5cm" PositionY="0.5cm" /> <!-- this is relative comparing to ballon location -->						
+					<Scale x="1" y="1" /> <!-- default scale values are 1,1 , but can be any regular metric -->
+					<Transformation a="1" b="0" c="0" d="1" /> <!-- Rotation or any other deformation 2x2 matrix. Default is identity matrix -->
+					<Font Name="Helvetica" Size="12pt" Color="rrggbb" />					
+					<Text Value="Phone:" />
+				</Item>				
+				<Item Type="DynamicText" version="1.0">
+					<Location PositionX="2.5cm" PositionY="0.5cm" /> <!-- this is relative comparing to ballon location -->						
+					<Scale x="1" y="1" /> <!-- default scale values are 1,1 , but can be any regular metric -->
+					<Transformation a="1" b="0" c="0" d="1" /> <!-- Rotation or any other deformation 2x2 matrix -->
+					<Font Name="Helvetica" Size="10pt" Color="rrggbb" />					
+					<Text SourceColumn="name" />
+					
+				</Item>	
+				<Item Type="Counter" version="1.0">
+					<Location PositionX="0.5cm" PositionY="10.5cm" /> <!-- this is relative comparing to ballon location -->						
+					<Font Name="Helvetica" Size="12pt" Color="rrggbb" />					
+					<Format Value="Something: {C}, of {E} where begin is: {S}" /> <!-- format for display -->
+					<Start Value="10" />
+					<End Value="100" /> <!-- 0 means that there is no END -->
+					<Interval Value="3" /> <!-- interval for counting -->
+					<Loop Value="0" /> <!-- 0 don't loop, 1 loop -->
+				</Item>				
+				<Item Type="DateTime" version="1.0">
+					<Location PositionX="0.5cm" PositionY="5.5cm" /> <!-- this is relative comparing to ballon location -->						
+					<Font Name="Helvetica" Size="12pt" Color="rrggbb" />					
+					<Format Value="dddd, dd. MMMM yyyy. Time: HH:mm:ss" /> <!-- for legend consult help -->
+				</Item>		
+				<Item Type="ShapeLine" version="1.0">
+					<Location PositionX="1.0cm" PositionY="1.0cm" /> <!-- this is relative comparing to ballon location -->						
+					<X2 Value="10.0cm" />					
+					<Y2 Value="10.0cm" />
+					<Width Value="10.0" />
+				</Item>
+				<Item Type="ShapeRectangle" version="1.0">
+					<Location PositionX="2.0cm" PositionY="10.0cm" /> <!-- this is relative comparing to ballon location -->						
+					<Width Value="5.0cm" />					
+					<Height Value="2.0cm" />
+					
+					<ShadingItem Type="ShadingItem" version="1.0"> <!-- This whill shade current shape -->
+						<StartLocation StartX="2.0cm" StartY="10.0cm" />
+						<Shading Type="3" Size="2.0cm" UseCMYK="0" Factor="1.0"/> <!-- If you want to use CMYK set useCMYK to 1, comment RGB colors and uncomment CMYK colors -->
+
+						<AxialCoords FromX="0.0" FromY="0.0" ToX="0.0" ToY="1.0" />
+						<RadialCoords FromX="1.0" FromY="0.5" FromR="0.0" ToX="1.0" ToY="0.5" ToR="1.0" />
+						
+						<Function Type="3" /> <!-- If you want to use simple transition set Type to 2, functions will know what to load -->
+						<Color1 FromR="1.0" FromG="1.0" FromB="1.0" ToR="0.0" ToG="0.0"  ToB="0.0" />
+						<Color2 FromR="0.0" FromG="0.0" FromB="0.0" ToR="0.0" ToG="1.0"  ToB="0.0" />
+
+						<!-- <Color1 FromC="1.0" FromM="0.0" FromY="0.0" FromK="0.0" ToC="0.0" ToM="1.0" ToY="0.0" ToK="0.0" /> -->
+						<!-- <Color2 FromC="0.0" FromM="1.0" FromY="0.0" FromK="0.0" ToC="0.0" ToM="0.0" ToY="1.0" ToK="0.0" /> -->
+					</ShadingItem>
+				</Item>
+				<Item Type="Precalculated" version="1.0">
+					<Location PositionX="5.0cm" PositionY="11.0cm" />
+					<Font Name="Helvetica" Size="12pt" Color="rrggbb" />
+					<Formula Value="(SUM(Pera.Petrovic) * 10 + AVG(Petar.Nikolic) + COUNT(Pera.Petrovic)) / 100" />
+				</Item>
+			</Items>					
+		</Balloon>
+
+
+		<Balloon Name="DynamicTest" Type="Dynamic" DataStream="Person" Version="1.0">	
+			<AvailableOnEveryPage Value="True" /> <!-- If this ballon should be used on all pages -->
+			<FillingGeneratesNew Value="True" /> <!-- If this ballon is filled with some other ballons then new ballon of this type will be generated -->
+			<FillCapacity Value="10" /> <!-- If more than this number of dynamic ballons is reached ballon will try to generate another one, or stop dynamic generation, 0 = infinite -->
+			<CanGrow Value="True" /> <!-- is this ballon allowed to grow when there is no more place. Page is the only entity that cannot grow -->
+			<Location PositionX="0cm" PositionY="5cm" /> <!-- Where is balloon's location -->   
+			<Shape Type="Rectangle"> 
+				<Dimensions Width="10.5cm" Height="0.5cm" /> 
+			</Shape>
+
+			<Items>				
+				<Item Type="DynamicText" version="1.0">
+					<Location PositionX="1cm" PositionY="0.4cm" /> <!-- this is relative comparing to ballon location -->						
+					<Font Name="Helvetica" Size="10pt" Color="rrggbb" />					
+					<Text SourceColumn="name" />
+				</Item>				
+				<Item Type="DynamicText" version="1.0">
+					<Location PositionX="5cm" PositionY="0.4cm" /> <!-- this is relative comparing to ballon location -->						
+					<Font Name="Helvetica" Size="10pt" Color="rrggbb" />					
+					<Text SourceColumn="phone" />
+				</Item>
+			</Items>					
+		</Balloon>
+	</Balloons> 
+   </Page>
+</PdfFactoryTemplate>

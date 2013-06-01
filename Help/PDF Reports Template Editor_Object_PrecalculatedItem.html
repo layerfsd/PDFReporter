@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Precalculated Item</title>
+<style type="text/css">
+<!--
+.style1 {
+	font-family: Arial;
+	font-size: 10pt;
+}
+.style2 {font-family: Arial; font-size: 10pt; font-weight: bold; }
+-->
+</style>
+</head>
+
+<BODY>
+<P class=style1>Precalculated item is designed to calculate result from given 
+data by formula you entered. So if you have data like product prices and you 
+want to calculate average value or to calculate discounts in percents or any 
+other mathematic formula combined with some of our rules.</P>
+<P class=style1>To create Precalculated item, select it from object tool bar and 
+place it on page inside desire container (Static or Dynamic balloon) like shown 
+in picture below. </P>
+<P class=style1><IMG height=715 src="screenshots/selecting precalculated item for creation.jpg" width=613></P>
+<P class=style1>To set specific properties for Precalculated balloon, select it 
+in page like shown in picture below. </P>
+<P class=style1><IMG height=656 src="screenshots/Selecting precalculated item for changing properties.jpg" width=613></P>
+<P class=style1>Specific properties for precalculated item are:</P>
+<P class=style1><STRONG>ForeColor</STRONG>, is color of the text.</P>
+<P class=style1><STRONG>Font</STRONG>, is font name and size use to draw 
+text.</P>
+<P class=style1><STRONG>Text</STRONG>, is displayed when Formula doesn't 
+exists.</P>
+<P class=style1><STRONG>Formula</STRONG>, mathematic formula combined with our 
+specific rules. Consult example below.</P>
+<P class=style1>Formula example: </P>
+<P class=style1>Formula is combination of predefined functions for getting data 
+and calculate it, and standard mathematic symbols.</P>
+<P class=style1>Predefined functions are:</P>
+<P class=style1>AVG(DataStream.Column), count average value from given 
+DataStream and Column . </P>
+<P class=style1>SUM(DataStream.Column), sums values from given DataStream and 
+Column.</P>
+<P class=style1>MIN(DataStream.Column), represents minimum value from given 
+DataStream and Column . </P>
+<P class=style1>MAX(DataStrem.Column), represents maximum value from given 
+DataStream and Column. </P>
+<P class=style1>DECTOBIN(DataStream.Column), will sum all data from DataStream 
+and Column, and result will be in binary format.</P>
+<P class=style1>DECTOHEX(DataStream.Column), will sum all data from DataStream 
+and Column, and result will be in hex format.</P>
+<P class=style1>Standard mathematic symbols are:</P>
+<P class=style1>( ) + - * / 0123456789</P>
+<P class=style1>Some examples of finished formulas:</P>
+<P class=style1>SUM(Product.Price) - sum all prices</P>
+<P class=style1>( SUM(Product.Price) + 100 ) * 0.2 - sum all prices adds 100 and 
+counts 20% off result. </P>
+<P class=style1>&nbsp;</P>
+<P class=style2>Important: Do not place text that do not apply this rules, that 
+formula will be bad and wont return anything as a result. </P>
+</BODY>
+</html>
